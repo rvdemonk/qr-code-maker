@@ -7,10 +7,7 @@ from qrcode.image.styles.moduledrawers import RoundedModuleDrawer
 
 URL = "www.thompsonguitar.studio"
 LOGO_PATH = "images/TGS-logo-large-no-bg.png"
-GUITAR_SKETCH_PATH = "images/guitar-sketch-1-no-bg.png"
-SUN_PATH = "images/sun.png"
-
-OUTPUT_DIR = "output/"
+OUTPUT_DIR = "output"
 
 qr = qrcode.QRCode(
     version=1,
@@ -85,10 +82,12 @@ def create_embedded_qrcode(version, size, img_path, output_folder):
 
 
 def main():
+    if OUTPUT_DIR not in os.listdir():
+        os.mkdir(OUTPUT_DIR)
     versions = [1, 5, 10]
     sizes = [20, 22, 24, 25]
-    image = SUN_PATH
-    save_folder = "rounded-with-sun"
+    image = LOGO_PATH  # put the path to your image here
+    save_folder = "logo"  # put the path to the subdirectory in output/ here where images will be stored
     for ver in versions:
         for size in sizes:
             create_embedded_qrcode(ver, size, image, save_folder)
