@@ -87,7 +87,7 @@ def main():
     versions = [1, 5, 10]
     sizes = [20, 22, 24, 25]
     image = LOGO_PATH  # put the path to your image here
-    save_folder = "logo"  # put the path to the subdirectory in output/ here where images will be stored
+    save_folder = "logo"  # put the name of the subdirectory in output/ here where the image set will be stored
     for ver in versions:
         for size in sizes:
             create_embedded_qrcode(ver, size, image, save_folder)
